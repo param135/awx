@@ -1,0 +1,7 @@
+# The first Playbook integrated with Ansible Tower
+---
+  - name: Brand New Play For HostNames
+    hosts: all
+    tasks:
+      - name: Task Name To Follow Best Practice
+        command: hostname

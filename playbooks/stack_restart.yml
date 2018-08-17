@@ -21,7 +21,7 @@
    become: true
    tasks:
      - name: databse restart
-      service: name=mysql state=restarted
+       service: name=mysql state=restarted
   #   - wait_for: host={{ ansible_eth0.ipv4.address }} port=3306 state=started
 
 # Bring stack up

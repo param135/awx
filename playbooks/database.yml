@@ -4,3 +4,6 @@
     tasks:
       - name: to install the database
         action: apt name=mysql-server state=present update_cache=yes
+
+      - name: ensure mysql is running
+        service: name=mysql state=started enabled=yes

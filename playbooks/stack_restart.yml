@@ -6,7 +6,7 @@
    tasks:
      - name: loadbalancer stop
        service: name=nginx state=stopped
-#     - wait_for: port=80 state=drained
+     - wait_for: port=80 state=drained
 
  - hosts: webserver
    become: true
@@ -14,7 +14,7 @@
    tasks:
      - name: webserver stop
        service: name=apache2 state=stopped
-#     - wait_for: port=80 state=stopped
+     - wait_for: port=80 state=stopped
 
 # Bring database to restart
  - hosts: database
@@ -22,7 +22,8 @@
    tasks:
      - name: databse restart
        service: name=mysql state=restarted
-  #   - wait_for: host={{ ansible_eth0.ipv4.address }} port=3306 state=started
+     #- wait_for: host={{ ansible_eth0.ipv4.address }} port=3306 state=started
+     - wait_for: port=3306 state=started
 
 # Bring stack up
  - hosts: webserver
@@ -31,7 +32,7 @@
    tasks:
      - name: webserver start
        service: name=apache2 state=started
-    # - wait_for: port=80
+     - wait_for: port=80
 
  - hosts: loadbalancer
    become: true
@@ -39,4 +40,4 @@
    tasks:
      - name: loadbalancer start
        service: name=nginx state=started
-    # - wait_for: port=80
+     - wait_for: port=80

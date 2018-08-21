@@ -10,6 +10,7 @@
     - libapache2-mod-wsgi
     - python-pip
     - python-virtualenv
+    - python-myqsldb
 
 - name: ensure apache2 is running
   service: name=apache2 state=started enabled=yes

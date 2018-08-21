@@ -31,7 +31,7 @@
   notify: restart apache2
 
 - name: deactivate the default page
-  file: path=/etc/apache2/sites-enabled/000-default.conf state=absent
+  file: path=/etc/apache2/sites-enabled/demo.conf state=absent
   notify: restart apache2
 
 - name: activate the demo page
